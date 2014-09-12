@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>{{name}}, {{user['username']}} home!</title>
+
+	<link rel="stylesheet" href="../static/css/material.reset.css">
+	<link rel="stylesheet" href="../static/css/material.main.css">
+	<link rel="stylesheet" href="../static/css/material.animate.css">
+	
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="../static/css/me.css">
+	<link rel="stylesheet" href="../static/css/news.css">
+
+</head>
+<body>
+
+	<div id="topbar" class="animated fadeInDown" style="background:rgba(0, 0, 0, 0.21)">
+		<div id="container">
+			Bienvenido de nuevo, {{user['username']}}  <span> Hay 1210 Usuarios en linea  </span>
+		</div>
+	</div>
+
+	<header>
+		<div id="container">
+			<div class="logo"></div>
+			<div id="subnavi">
+				<a href="/">Home</a>
+				<a href="news.html">News</a>
+				<a href="staff.html">Administrators</a>
+
+				{% if user['rank'] > 7 %}
+					<a href="hosekeeping/{{user['username']}}/admin">Housekeeping</a>
+				{% endif %}
+
+				<a style="color:#F22613" href="logout">Logout</a>
+			</div>
+		</div>
+	</header>
+	
+	<div id="container">
+		<div class="card imageWrapper">
+
+			<div class="overlay"></div>
+			<div class="avatarImage"></div>
+
+			<div class="avatarTitle">
+				<h1>{{user['username']}}</h1>
+				<span>{{user['motto']}}</span>
+			</div>
+
+			<div class="avatarDescription">
+				<div id="stats">
+					<li class="credits">
+						<div class="sprite-icons-money coins">
+							<span>{{user['credits']}} Creditos</span>
+						</div>
+					</li>
+
+					<li class="duckets">
+						<div class="sprite-icons-money duckets">
+							<span>{{user['peanuts']}} Duckets</span>
+						</div>
+					</li>
+
+					<li class="diamonds">
+						<div class="sprite-icons-money diamonds">
+							<span>{{user['stars']}} Diamantes</span>
+						</div>
+					</li>
+
+					<li class="refers">
+						<div class="sprite-icons-money refers">
+							<span>100 Referidos</span>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+
+		<div id="left-column" style="width:40%">
+			<div class="card mainLayer" style="position:relative">
+				
+				<div class="title">
+					<span class="titleGreen"><i class="fa fa-bars"></i> Últimas noticias</span>
+				</div>
+
+				<ul style="margin-top:30px;">
+					<li>
+						Hoy
+
+						<ul class="animated fadeIn">
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						Ayer
+
+						<ul class="animated fadeIn">
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						Esta semana
+
+						<ul class="animated fadeIn">
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						Este mes
+
+						<ul class="animated fadeIn">
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						Mes anterior
+
+						<ul class="animated fadeIn">
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+							<li>
+								<a href="">Atlanta server is the best</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="card">
+				<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<center>
+					<!-- RectanguloDerecho -->
+					<ins class="adsbygoogle"
+						 style="display:inline-block;width:300px;height:250px"
+						 data-ad-client="ca-pub-9815378634154577"
+						 data-ad-slot="3409151041"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</center>
+			</div>
+		</div>
+
+		<div id="right-column" style="width:58%">
+			<div class="card" style="text-align:justify">
+				<div class="card" style="margin-top: -3px; margin-bottom: 20px; padding:35px; background: url(http://img.habtium.com/album/7/0b5b79150dc7.png)">
+					<h1 style="text-align:center; background:black; color:white">EL NUEVO DISEÑO DE EL NAVEGADOR</h1>
+				</div>
+
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. <br><br>
+
+				Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.<br><br>
+
+				Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.<br><br>
+
+				Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.<br><br>
+
+				Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue. Integer eu magna sit amet metus fermentum posuere. Morbi sit amet nulla sed dolor elementum imperdiet. Quisque fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque adipiscing eros ut libero. Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida.
+				<span style="float:right">Escrito por: Diosa</span>
+			</div>
+
+			<div class="card">
+				<h1 class="softred">Escribe un comentario</h1>
+				<form action="submit/comment"></form>
+					<input type="hidden" name="new_id" value="23">
+					<textarea placeholder="Que nos quieres compartir..." name="new_comment" class="block post-message"></textarea>
+
+					<button type="submit"class="button red block" style="margin-top:20px">Enviar a haddoz</button>
+				</form>
+			</div>
+
+			<div class="card">
+				<div class="avatar">
+					<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+					<div class="avatarName">James rodriguez</div><br>
+					<div class="avatarComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia commodi laudantium id, sequi hic officiis explicabo dolore! </div>
+				</div>
+
+				<div class="avatar">
+					<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+					<div class="avatarName">James rodriguez</div><br>
+					<div class="avatarComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia commodi laudantium id, sequi hic officiis explicabo dolore! </div>
+				</div>
+
+				<div class="avatar">
+					<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+					<div class="avatarName">James rodriguez</div><br>
+					<div class="avatarComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia commodi laudantium id, sequi hic officiis explicabo dolore! </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>

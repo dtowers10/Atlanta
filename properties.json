@@ -1,0 +1,31 @@
+{
+	"Database":{
+		"host": "db4free.net",
+		"user": "beam",
+		"password": "WtBzWyumX6zWRbJf",
+		"database": "beam",
+		"port": 3306
+	},
+
+	"Atlanta":{
+		"name": "Haddoz Hotel"
+	},
+
+	"Connections":{
+		"port": 8000
+	},
+
+	"Google": {
+
+		"recaptcha": {
+			"public": "6LeEH_oSAAAAALFSORIh3fVfud2u0fftimbYvRUo",
+			"private": "6LeEH_oSAAAAAPGTrQCZRdLqU_6ew2PmZPwLzXty"
+		}
+	},
+
+	"Cookie":{
+		"ssid": "atlanta",
+		"store": false,
+		"secret": "/$%SeguridadSergioTEnUnCarro"
+	}
+}

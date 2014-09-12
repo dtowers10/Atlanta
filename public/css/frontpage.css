@@ -1,0 +1,181 @@
+body
+{
+	-webkit-font-smoothing:antialiased;
+}
+
+header
+{
+	height: 100px !important;
+	position: relative;
+}
+
+.logo
+{
+	width:  110px;
+	height: 40px;
+	position: absolute;
+	top: 27px;
+	background: url(../images/logo.png)
+}
+
+.formAction
+{
+	position: absolute;
+	float:right;
+	right: 10px;
+}
+
+.input
+{
+	border:none;
+	border: 1px solid #e4e4e4;
+	border-bottom:5px solid #E4E4E4;
+	padding-left: 30px;
+}
+
+button
+{
+	border:none;
+	font: sans-serif !important;
+}
+
+.button
+{
+	padding-bottom: 14px; 
+	margin-top: 4px;
+}
+
+.resetButton
+{
+	box-shadow: none;
+	border-bottom: none;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+.hotelPro
+{
+	width: 100%;
+	background: url(../images/frontpage_bg.jpg);
+	min-height:350px;
+}
+
+.h1
+{
+	font-size: 35px;
+	margin-top: 40px;
+	color:white;
+	font-weight: bold;
+}
+
+.span
+{
+	color: white;
+	margin-bottom: 40px;
+}
+
+.toDown{
+	margin-bottom: 10px;
+	margin-top: 50px;
+	text-transform: uppercase;
+}
+
+.hotelPro strong
+{
+	color:#4a9ce9;
+	margin-top: 3px;
+	font-size: 15px;
+	margin-left: 5px;
+}
+
+.hotelPro .caract
+{
+	color:white;
+	margin-top: 6px;
+}
+
+.hotelImage
+{
+	width: 436px;
+	height: 429px;
+	margin-top: -391px;
+	float: right;
+	background: url(../images/hotel.png);
+	text-align: center;
+}
+
+.avatar
+{
+	display: inline-block;
+	margin-top: 5px;
+	z-index: 9999;
+}
+
+.avatarImage
+{
+	width: 35px;
+	height: 70px;
+	padding: 30px;
+	border: 2px dotted black;
+	border-radius: 130px;
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+
+.avatarName
+{
+	margin-top: 14px;
+	font-size: 25px;
+}
+
+.avatarComment
+{
+	width: 500px;
+	margin-top: -23px;
+}
+
+.avatar:last-child
+{
+	margin-bottom: 15px;
+}
+
+.badge
+{
+	margin-left: 2px;
+	margin-right: 3px;
+	width: 50px;
+	height: 50px;
+	background-position: center;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.pacifi
+{
+	font-family: 'Pacifico', cursive !important;
+}
+
+.register-abs
+{
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #22313F;
+}
+
+.regImage
+{
+	margin-top: 90px;
+	width: 848px;
+	height: 544px;
+	right: -90px;
+	top: 30px;
+	position: absolute;
+	background: url(../images/frontpage_friends.png);
+}

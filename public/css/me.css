@@ -1,0 +1,138 @@
+body
+{
+	-webkit-font-smoothing:antialiased;
+}
+
+header
+{
+	height: 180px !important;
+	background: #22313F;
+	border-bottom:2px solid #151E27;
+	position: relative;
+	box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+}
+
+.logo
+{
+	width:  110px;
+	height: 40px;
+	position: absolute;
+	top: 83px;
+	left: 25px;
+	background: url(../images/logo.png)
+}
+
+.imageWrapper
+{
+	background: url(http://38.media.tumblr.com/c76be7423025fa04d2cdc99c05ca8d48/tumblr_mkcmq4728I1rwuvc9o2_r1_1280.jpg) !important;
+	width: 100% !important;
+	background-position: center !important;
+	background-size: 100% !important;
+	position:relative;
+	z-index: 99;
+	padding: 0 !important;
+	min-height: 200px;
+}
+
+.imageWrapper .avatarImage
+{
+	background: rgba(0, 0, 0, 0.70) url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=ca-1813-62.sh-725-110.ea-3170-110.hr-3020-34.ch-665-1320.lg-3006-110-110.hd-3106-1025.ha-1027-62&direction=3&head_direction=3&gesture=sml&action=wav&size=l);
+	background-position-x: -5px;
+	background-position-y: -30px;
+	border-radius: 90px;
+	border:3px dotted white;
+	display: inline-block;
+	height: 130px;
+	margin-left: 80px;
+	margin-top: 32px;
+	width: 130px;
+	z-index: 9999;
+}
+
+.imageWrapper .avatarTitle
+{
+	display: inline-block;
+	margin-left: 30px;
+	margin-top: 70px;
+	vertical-align: top;
+}
+
+.imageWrapper .avatarTitle h1
+{
+	color:white !important;
+	font-family: 'Pacifico', cursive !important;
+	font-size: 60px !important;
+	padding-bottom: 15px;
+}
+
+.imageWrapper .avatarTitle span
+{
+	color: white;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+}
+
+.imageWrapper .avatarDescription
+{
+	position: absolute;
+	background: rgba(0, 0, 0, 0.51);
+	width: 300px;
+	height: 100%;
+	right: 0;
+	top:0;
+}
+
+.overlay
+{
+	background: rgba(0, 0, 0, 0.15);
+	height: 100%;
+	position: absolute;
+	width:100%;
+	z-index: -100;
+}
+
+#stats
+{
+	border-top-right-radius: 3px;
+	height: 100%;
+	position: absolute;
+	left:25px;
+	top: 14.5px;
+}
+
+#stats li, a
+{
+	background: transparent;
+	list-style-type: none;
+	color: white;
+	padding: 10px;
+	width: 100%;
+}
+
+.sprite-icons-money{
+	background: url(http://haddoz.nl/static/beta/img/icons_money.png);
+	height: 20px;
+	width: 20px;
+	white-space:nowrap;
+}
+
+.sprite-icons-money span{
+	margin-left: 25px;
+}
+
+.sprite-icons-money.coins{
+	background-position: 0px 0px;
+}
+
+.sprite-icons-money.duckets{
+	background-position: -41px 0px;
+}
+
+.sprite-icons-money.diamonds{
+	background-position: -21px 0px;
+}
+
+.sprite-icons-money.refers{
+	background-position: -120px 0px;
+}

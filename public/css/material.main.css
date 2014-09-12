@@ -1,0 +1,756 @@
+/**
+	Material design, Inspired by Google
+	Material framework create by: Rayboccino and Mettok;
+	All rights reserved Hybrid 2010 - 2014
+*/
+
+
+@import url(../fonts/roboto/build.css);
+@import url(../fonts/sugarpie/build.css);
+@import url(../fonts/sifonn/build.css);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+@import "http://fonts.googleapis.com/css?family=RobotoDraft:400,300";
+
+html
+{
+	font-family: 'Roboto Light', sans-serif;
+}
+header
+{
+	background-color: #4285F4;
+	border-bottom: 2px solid #327EFD;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1);
+	height: 200px;
+	left: 0;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 998;
+}
+
+.error
+{
+	width: 100%;
+	background:#FE6760;
+	border:5px solid rgb(255, 107, 107);
+	text-align: center;
+	color:white;
+	padding: 5px 5px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#topbar
+{
+	background: rgba(0,0,0,0.2);
+	color: #fff;
+	font-family: Roboto Condensed Regular;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+#topbar #container
+{
+	margin: 0 auto;
+	padding: 6px;
+	width: 1000px;
+}
+#topbar #container span
+{
+	float: right;
+}
+i.fa
+{
+	margin-right: 5px;
+}
+header h1
+{
+	color: #fff;
+	font-family: Roboto Bold;
+	font-size: 56px;
+	font-weight: normal;
+	line-height: 1.5;
+	margin-top: 50px;
+}
+header #container
+{
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	width: 950px;
+}
+
+header #container #subnavi
+{
+	bottom: 15px;
+	font-family: Roboto Condensed Light;
+	font-size: 18px;
+	position: absolute;
+	right: 0;
+}
+
+#hotel-image
+{
+	background: url(http://metropolys.es/bg_hotel.out.png);
+	filter: alpha(opacity=40);
+	height: 756px;
+	opacity: 0.3;
+	position: fixed;
+	right: -300px;
+	top: 100px;
+	width: 1026px;
+}
+#banner
+{
+	background: url(http://habtium.es/images/layout/sky_day.png);
+	height: 155px;
+	left: 0;
+	position: absolute;
+	top: 200px;
+	width: 100%;
+}
+
+header #container #subnavi a
+{
+	border-radius: 3px;
+	cursor: pointer;
+	text-decoration:  none;
+	color: #FFF;
+	font-family: Roboto Condensed Light;
+	margin-right: 20px;
+	padding-bottom: 12px;
+}
+
+header #container #subnavi a:hover
+{
+	border-radius: 0px;
+	color: #4fc3f7;
+	transition: color 0.5s ease;
+}
+
+.logo-image
+{
+	background-image: url(https://habboo-a.akamaihd.net/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/2624/web-gallery/images/v3/habbologo_whiteR.out.png);
+	width: 110px;
+	height: 40px;
+	margin-left:40px;
+}
+
+body
+{
+	background: #E4E4E4;
+	color: #777;
+	font-family: "RobotoDraft",sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	overflow-x: hidden;
+	padding: 0;
+}
+
+body .antial
+{
+	-webkit-font-smoothing:antialiased;
+}
+
+body #container
+{
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 20px;
+	width: 1000px;
+}
+body #container p
+{
+	color: #6c6c6c;
+	font-size: 1.429em;
+	font-weight: 400;
+	line-height: 1.8;
+}
+body #container #right-column .card + .card
+{
+	margin-top: 20px;
+}
+body #container #left-column
+{
+	float:left;
+	width: 50%;
+}
+body #container #right-column
+{
+	float: right;
+	width: 49%;
+}
+body #container .card
+{
+	background: #FAFAFA;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px #aaa;
+	color: #444444;
+	display: inline-block;
+	margin-bottom: 20px;
+	padding: 1.5rem;
+	transform-origin: top left;
+	user-select: none;
+	width: 100%;
+}
+
+body #container .card .orange
+{
+	color:#f39c12;
+}
+
+body #container .card.post-message
+{
+	background: #F5F5F5;
+}
+textarea
+{
+	background: #fff;
+	border: 1px solid #E4E4E4;
+	border-radius: 3px;
+	font-family: Roboto Regular;
+	outline: 0;
+	padding: 10px;
+}
+textarea.block
+{
+	display: block;
+	width: 100%;
+}
+textarea.post-message
+{
+	font-size: 14px;
+	margin-top: 10px;
+}
+body #container .card h1
+{
+	color: #4285F4;
+	font-family: Roboto Medium;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+	margin-bottom: 5px;
+}
+body #container .card h1.hotpink
+{
+	color: #E91E63;
+}
+body #container .card h1.softred
+{
+	color: #FF5252;
+}
+.button
+{
+	background: #2196F3;
+	border-bottom: 1px solid #B8B8B8;
+	border-radius: 3.5px;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1);
+	color: #fff;
+	cursor: pointer;
+	font-family: Roboto Bold;
+	font-size: 14px;
+	font-weight: normal;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	margin-right: 5px;
+	padding-right: 20px;
+	padding-top: 10px;
+	transition: background 0.5s ease;
+}
+.button.modern
+{
+	background: transparent;
+	border-bottom: 0;
+	box-shadow: none;
+	color: #4D4D4D;
+	font-family: Roboto Bold;
+	font-size: 14px;
+	transition: color 0.3s ease;
+}
+.button.modern:hover
+{
+	color: #2196F3;
+}
+
+.button.modern.orange:hover
+{
+	color: #FFAB40;
+}
+
+.button.red
+{
+	background: #FF5252;
+}
+
+.button.blue
+{
+	background: #3498db;
+	color:white;
+}
+
+.button.green
+{
+	background: #2ecc71;
+	color:#FFF;
+}
+
+.button.white
+{
+	background: #FAFAFA;
+	color: #444444;
+}
+.button.block
+{
+	display: block;
+	text-align: center;
+}
+
+.block
+{
+	width: 100%;
+	display:block;
+}
+
+.input
+{
+	background: #fff;
+	border: 1px solid #E4E4E4;
+	border-radius: 3px;
+	font-family: 'Roboto Regular';
+	font-size: 14px;
+	margin-bottom: 6px;
+	outline: 0;
+	padding: 10px;
+}
+
+.input:focus
+{
+	outline: 0px;
+	color: #515151;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+}
+
+.input:first-child
+{
+	margin-top: 10px;
+}
+
+.input:last-child
+{
+	margin-bottom: 35px;
+}
+
+.input.error
+{
+	border: 1px solid #e74c3c;
+	border-bottom:5px solid #c0392b;
+}
+
+*
+{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+#jumbotron #jumbofoo i
+{
+	float: right;
+}
+#jumbotron
+{
+	background: #C0E3F0;
+	background-size: 100%;
+	border-radius: 3px;
+	color: #fff;
+	height: 400px;
+	moz-background-size: 100%;
+	o-background-size: 100%;
+	position: relative;
+	-webkit-background-size: cover;
+	width: 100%;
+}
+#jumbotron #jumbohead
+{
+	background: #fff;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	box-shadow: 0 1px 2px #aaa;
+	color: #4D4D4D;
+	font-size: 16px;
+	height: 45px;
+	left: 0px;
+	padding: 10px;
+	padding-left: 20px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+#jumbotron #avatar-info #avatar-last-seen
+{
+	display: block;
+	font-size: 12px;
+}
+#jumbotron #jumbofoo
+{
+	animation: fly-in-from-left .5s 1s ease both;
+	background: white;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	bottom: 0px;
+	box-shadow: 0 1px 2px #aaa;
+	color: #4D4D4D;
+	display: inline-block;
+	left: 0px;
+	padding: 10px 10px 10px 30px;
+	padding-top: 12px;
+	position: absolute;
+	transform-origin: top left;
+	user-select: none;
+	width: 100%;
+}
+#jumbotron #stats
+{
+	background: rgba(0,0,0,0.5);
+	border-top-right-radius: 3px;
+	height: 100%;
+	padding-top: 45px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 220px;
+}
+#jumbotron #stats li, a
+{
+	background: transparent;
+	list-style-type: none;
+	padding: 10px;
+	width: 100%;
+}
+#jumbotron #stats li.credits
+{
+	background: #ffb74d;
+}
+#jumbotron #stats li.duckets
+{
+	background: #8e44ad;
+}
+#jumbotron #stats li.diamonds
+{
+	background: #4285F4;
+}
+
+#jumbotron #stats li.refers
+{
+	background: #d35400;
+}
+
+#jumbotron #stats a.goHotel
+{
+	background: #2ecc71;
+	bottom: 45px;
+	height: 45px;
+	color:white;
+	text-decoration:  none;
+	position: absolute;
+	text-align: center;
+}
+#jumbotron #jumbofoo span
+{
+	font-family: Roboto Condensed Regular;
+	font-size: 16px;
+	line-height: 1;
+	margin-right: 20px;
+	padding-bottom: 11px;
+}
+#jumbotron #jumbofoo span:hover
+{
+	border-bottom: 2px solid #8BC34A;
+	color: #8BC34A;
+	cursor: pointer;
+	transition: color 0.3s ease;
+}
+#jumbotron #avatar-info h1
+{
+	color: #fff;
+	font-family: Roboto Bold;
+	font-size: 30px;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+#jumbotron #avatar-circle
+{
+	background: rgba(56, 58, 55, 0.87) url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l);
+	background-position: center;
+	border-radius: 9999px;
+	bottom: 140px;
+	height: 120px;
+	left: 70px;
+	position: absolute;
+	width: 120px;
+	z-index: 999;
+}
+#jumbotron #avatar-info
+{
+	background: rgba(0,0,0,0.5);
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+	bottom: 140px;
+	height: 120px;
+	left: 125px;
+	padding-left: 80px;
+	padding-right: 30px;
+	position: absolute;
+	width: 350px;
+	z-index: 998;
+}
+#jumbotron #info p
+{
+	color: #fff;
+	margin-top: 150px;
+	text-align: center;
+}
+.modal
+{
+	background: #FAFAFA;
+	border-radius: 3px;
+	box-shadow: 0 15px 6px -6px rgba(0,0,0,0.3);
+	color: #666666;
+	display: none;
+	font-family: RobotoDraft;
+	height: 250px;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -100px;
+	-moz-box-shadow: 0 15px 6px -6px rgba(0,0,0,0.3);
+	padding: 20px;
+	position: fixed;
+	top: 50%;
+	-webkit-box-shadow: 0 15px 6px -6px rgba(0,0,0,0.3);
+	width: 400px;
+	z-index: 1000 !important;
+}
+.modal h1
+{
+	color: #4D4D4E;
+	font-family: Roboto Medium;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.modal.error h1
+{
+	color: #FF5252;
+}
+#overlay
+{
+	background-color: rgba(0,0,0,0.3);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999 !important;
+}
+.toast
+{
+	background: #323232;
+	border-radius: 3px;
+	color: #fff;
+	font-family: Roboto Light;
+	font-size: 15px;
+	padding: 12px;
+	padding-left: 15px;
+}
+.toast.red
+{
+	background: #F44336;
+}
+.toast.green
+{
+	background: #4CAF50;
+}
+.toast.block
+{
+	display: block;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.sprite-icons-money{
+	background: url(http://haddoz.nl/static/beta/img/icons_money.png);
+	height: 20px;
+	width: 20px;
+	white-space:nowrap;
+}
+
+.sprite-icons-money span{
+	margin-left: 25px;
+}
+
+.sprite-icons-money.coins{
+	background-position: 0px 0px;
+}
+
+.sprite-icons-money.duckets{
+	background-position: -41px 0px;
+}
+
+.sprite-icons-money.diamonds{
+	background-position: -21px 0px;
+}
+
+.sprite-icons-money.refers{
+	background-position: -120px 0px;
+}
+
+body #container .card.articles
+{
+	padding-top: 50px;
+	position: relative;
+}
+body #container .card .title span
+{
+	background: #D91E18;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	color: #fff;
+	font-size: 16px;
+	left: 0;
+	padding: 10px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+body #container .card .content
+{
+	margin-top:40px;
+}
+
+body #container .card .articles .article
+{
+	background: transparent;
+	border-bottom: 1px solid #DCDCDC;
+	display: block;
+	padding: 15px;
+}
+body #container .card .articles .article h1, #titlea
+{
+	color: #4D4D4D !important;
+	font-family: Roboto Regular;
+	text-decoration: underline !important;
+	cursor: pointer;
+	font-size: 15px;
+	padding: 0 !important;
+	font-weight: normal;
+}
+
+
+body #container .card .articles .article p
+{
+	font-size: 14px;
+}
+body #container .card .articles .article .article-image
+{
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 3px;
+	float: left;
+	height: 50px;
+	margin-right: 20px;
+	moz-background-size: cover;
+	o-background-size: cover;
+	-webkit-background-size: cover;
+	width: 50px;
+}
+body #container .card .articles .article:last-child
+{
+	border-bottom: none;
+}
+
+body #container .card .span
+{
+	background: #D91E18;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	color: #fff;
+	font-size: 16px;
+	left: 0;
+	padding: 10px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+
+
+.titleBlue
+{
+	background: #3498db !important;
+}
+
+.titleGreen
+{
+	background: #03A678 !important;
+}
+
+footer
+{
+	height: 125px;
+	margin-top: 20px;
+	background: rgb(105, 100, 100);
+	color: white;
+}
+footer #container
+{
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 950px;
+}
+
+footer #container span
+{
+	float: right;
+}
+
+footer h1
+{
+	font-family: Roboto Bold;
+	font-size: 38px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+body #container .card.facebook
+{
+	background: #4285F4;
+	color: #FFF;
+}
+
+body #container .card.facebook h1
+{
+	color: #fff;
+}
+
+body #container .card.invitations
+{
+	background: #26C281;
+}
+
+body #container .card.invitations h1
+{
+	color: #fff;
+}
+body #container .card.invitations
+{
+	color: #fff;
+}
+
+a{
+	text-decoration: none;
+}

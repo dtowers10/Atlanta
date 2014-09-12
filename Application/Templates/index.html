@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>{{name}} el hotel mas grande de Latinoamerica</title>
+
+	<link rel="stylesheet" href="static/css/material.reset.css">
+	<link rel="stylesheet" href="static/css/material.main.css">
+	<link rel="stylesheet" href="static/css/material.animate.css">
+
+	<link rel="stylesheet" href="static/css/frontpage.css">
+
+</head>
+<body>
+	<div class="register-abs" id="register">
+		<div id="container" style="margin-top:55px">
+
+			<div class="logo animated fadeIn" style="top:50px;"></div>
+
+			<div id="left-column" style="width:40%">
+
+				<h1 class="h1 toDown">Registrate ahora</h1>
+				<span class="span">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi odio animi molestiae necessitatibus, obcaecati, rerum corrupti vel illum non consequatur vero quisquam, vitae delectus beatae magni excepturi modi, cumque laboriosam.</span><br><br>
+
+				<form action="/account/signup" method="POST">
+
+					{% if error %}
+						<div class="error">{{error}}</div>
+					{% endif %}
+
+					<!--<input id="csrf_r" type="hidden" name="_csrf" value="{{csrf}}">-->
+
+					<input required type="text" name="username" placeholder="Nombre de usuario" class="input block animated shake">
+
+					<input required type="email" name="email" placeholder="Correo electronico" class="input block animated shake">
+
+					<input required type="password" name="password" placeholder="Contraseña" class="input block animated shake">
+
+					<input required type="password" name="password_repeat" placeholder="Repite tu contraseña" class="input block animated shake">
+
+					<div id="captcha-container">
+						<div id="captcha-image-container">
+							<div id="recaptcha_image"></div>
+							<div id="captcha-overlay"></div>
+						</div>
+
+						<div class="input-group" style="margin-top:5px;">
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-warning-sign"></i>
+							</span>
+
+							<input required class="input" type="text" name="recaptcha_response_field" id="recaptcha_response_field" placeholder="Escribe las dos palabras" style="display:inline-block;">
+
+							<a id="reloadcaptcha" class="recaptcha-reload"  style="cursor:pointer;text-decoration:underline; color:white;">Prueba otro c&oacute;digo</a>
+						</div>
+					</div>
+
+                    <br>
+
+					<button type="submit" class="button blue resetButton"> 
+						<i class="fa fa-sign-in"><span style="margin-left:3px">Registrarme</span></i>
+					</button>
+
+				</form>
+			</div>
+		</div>
+
+		<div class="regImage"></div>
+	</div>
+
+	<div id="initialMain">
+	<header>
+		<div id="container">
+			<div class="logo animated fadeIn"></div>
+
+			<div class="formAction animated fadeIn">
+				<form action="/account/submit" method="POST">
+
+					{% if error %}
+						<script type="text/javascript">
+							setTimeout(function(){
+								$('#error_login').addClass('animated fadeOutUp')
+								$('#error_login').remove()
+							}, 800)
+						</script>
+
+						<div class="error" style="position:absolute; padding:7px 5px;" id="error_login">{{error}}</div>
+
+					{% endif %}
+
+					<input id="csrf_i" type="hidden" name="_csrf" value="{{csrf}}">
+					<input type="text" name="username" class="input" placeholder="Nombre de usuario">
+					<input type="password" name="password" class="input" placeholder="Contraseña">
+
+					<button type="submit" class="button green resetButton"> 
+						<i class="fa fa-sign-in"><span style="margin-left:5px">Entrar ahora</span></i>
+					</button>
+
+					<a id="register_but" class="button green resetButton">
+						<i class="fa fa-heart"><span style="margin-left:5px; margin-right:20px;">Registrarme</span></i>
+					</a>
+				</form>
+			</div>
+		</div>
+	</header>
+
+	<div class="hotelPro animated fadeIn">
+		<div id="container">
+			<h1 class="h1 toDown">{{name}}</h1>
+			<strong>El hotel más grande de latinoamerica</strong><br>
+
+			<div class="caract">
+				<li>Es un juego social donde nadien sabra quien eres realmente</li>
+				<li>Llevamos desde el 2010 ofreciendo diversión a todos nuestros usuarios</li>
+				<li>Contamos con más de 875.000 usuarios registrados</li>
+				<li>Prodras hacer nuevos amigos, tomar un cafe, ir a una discoteca hasta ir a la playa</li>
+				<li>Puedes crear cuantas salas quieras, decorarla a tu estílo y competir con otras salas</li>
+				<li>Hay gran variedad de actividades en las que puedes participar y ganar super premios</li>
+				<li>Todos los creditos son completamente gratuitos.</li>
+			</div>
+			
+		</div>
+		<div class="hotelImage animated fadeInRight"></div>
+	</div>
+
+	<div id="container" style="margin-top: -40px;">
+		<div id="left-column">
+			<div class="card">
+				<h1>Placas más usadas</h1>
+
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+				<div class="badge" style="background-image:url('http://haddo.veroke.pw/c_images/album1584/HOR10.gif');"></div>
+			</div>
+		</div>
+
+		<div id="right-column">
+			<div class="card animated fadeInDown facebook">
+				<h1>Siguenos en Facebook</h1>
+				Si nos sigues puedes ser premiado con concursos exclusivos solo para nuestro Facebook <br><br>
+				<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FHaddozHotel&amp;width=580&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;border_color=black&amp;stream=true&amp;header=false&amp;appId=381779658524460&amp;show_border=false" scrolling="no" frameborder="0" style="background: #FFF; border:1px solid #E4E4E4; overflow:hidden; width:100%; height:300px;" allowtransparency="false"></iframe>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+	<script type="text/javascript">
+
+		Recaptcha.create("6LeEH_oSAAAAALFSORIh3fVfud2u0fftimbYvRUo", 'recaptcha_image',{
+            theme: "custom",
+            callback: Recaptcha.focus_response_field });
+
+		$('#reloadcaptcha').click(function(event){
+			event.preventDefault();
+			Recaptcha.reload();
+		})
+
+		$('#register_but').click(function()
+		{
+			$('body').css('background', '#22313F')
+			$('#initialMain').addClass('animated fadeOut')
+			$('#initialMain').css('display', 'none')
+
+			$('.register-abs').css('display', 'block')
+			$('.register-abs').addClass('animated fadeInDown')
+		})
+
+		if(window.location.hash) {
+
+			var hash = window.location.hash.substring(1); 
+
+			if(hash == "register")
+			{
+				$('body').css('background', '#22313F')
+
+				$('#initialMain').addClass('animated fadeOut')
+				$('#initialMain').css('display', 'none')
+
+				$('.register-abs').css('display', 'block')
+				$('.register-abs').addClass('animated fadeInDown')
+			}
+		}
+	</script>
+</body>
+</html>

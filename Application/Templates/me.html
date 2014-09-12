@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>{{name}}, {{user['username']}} home!</title>
+
+	<link rel="stylesheet" href="static/css/material.reset.css">
+	<link rel="stylesheet" href="static/css/material.main.css">
+	<link rel="stylesheet" href="static/css/material.animate.css">
+	
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="static/css/me.css">
+
+</head>
+<body>
+
+	<div id="topbar" class="animated fadeInDown" style="background:rgba(0, 0, 0, 0.21)">
+		<div id="container">
+			Bienvenido de nuevo, {{user['username']}}  <span> Hay {{userCount}}</span>
+		</div>
+	</div>
+	<header>
+		<div id="container">
+			<div class="logo"></div>
+			<div id="subnavi">
+				<a href="#">Home</a>
+				<a href="news.html">News</a>
+				<a href="staff.html">Administrators</a>
+				
+				{% if user['rank'] > 7 %}
+					<a href="hosekeeping/{{user['username']}}/admin">Housekeeping</a>
+				{% endif %}
+
+				<a style="color:#F22613" href="account/logout">Logout</a>
+			</div>
+		</div>
+	</header>
+	
+	<div id="container">
+		<div class="card imageWrapper">
+
+			<div class="overlay"></div>
+			<div class="avatarImage"></div>
+
+			<div class="avatarTitle">
+				<h1>{{user['username']}}</h1>
+				<span>{{user['motto']}}</span>
+			</div>
+
+			<div class="avatarDescription">
+				<div id="stats">
+					<li class="credits">
+						<div class="sprite-icons-money coins">
+							<span>{{user['credits']}} Creditos</span>
+						</div>
+					</li>
+
+					<li class="duckets">
+						<div class="sprite-icons-money duckets">
+							<span>{{user['peanuts']}} Duckets</span>
+						</div>
+					</li>
+
+					<li class="diamonds">
+						<div class="sprite-icons-money diamonds">
+							<span>{{user['stars']}} Diamantes</span>
+						</div>
+					</li>
+
+					<li class="refers">
+						<div class="sprite-icons-money refers">
+							<span>100 Referidos</span>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+
+		<div id="left-column">
+			<div class="card" style="position:relative">
+			
+				<div class="title">
+					<span class="titleGreen"><i class="fa fa-bars"></i> Últimas noticias</span>
+				</div>
+
+				<div class="articles" style="margin-top:25px;"></div>
+			</div>
+			
+			<div class="card" style="position:relative">
+				<div class="title">
+					<span><i class="fa fa-circle-o-notch"></i> Nuestra radio</span>
+				</div>
+
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cum temporibus ab id, quo mollitia beatae ad nisi accusantium, in hic nam fugiat omnis quam natus necessitatibus itaque consequuntur! Doloribus.
+					<center style="margin-top:8px;">
+						<audio controls="" autoplay="">
+							<source src="http://37.187.25.155:9382/stream.nsv">
+								Hey lo sentimos, tu navegador no contiene las caracteristicas para poder escuchar audio en directo.
+						</audio>
+					</center>
+				</div>
+			</div>
+		</div>
+
+		<div id="right-column">
+			<div class="card" style="position:relative">
+				<div class="title">
+					<span class="titleBlue"><i class="fa fa-facebook-square"></i> Siguenos en Facebook</span>
+				</div>
+
+				<div class="content"><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FHaddozHotel&amp;width=580&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;border_color=black&amp;stream=true&amp;header=false&amp;appId=381779658524460&amp;show_border=false" scrolling="no" frameborder="0" style="background: #FFF; border:1px solid #E4E4E4; overflow:hidden; width:100%; height:300px;" allowtransparency="false"></iframe></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$.ajax({
+
+				url: '/articles/get',
+				type: 'GET',
+				cache:false,
+
+				beforeSend: function() {
+					$('.articles').append('Please, wait one moment!')
+				},
+
+				success: function(body){
+					$('.articles').empty()
+
+					$.each(body, function(k, val){
+						$('.articles').append('<div class="article">'+
+							'<i class="article-image" style="background: url(' + val.imageurl + ') center center;"></i>' +
+
+							'<a id="titlea" href="/articles/'+ val.id +'">'+ val.title +'</a>' +
+							'<p>'+ val.body +'</p>')
+					})
+				}
+			})
+		})
+	</script>	
+</body>
