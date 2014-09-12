@@ -69,13 +69,15 @@
 
 		this.addArticle = function(req, res)
 		{
-			FormBody = req.body
+			BodyForm = req.body
 
 			if(req.session.user.rank > 5)
 			{
 				res.set('Content-Type', 'application/json')
 
-				if(FormBody.title.length < 0 || FormBody.body.length < 0 || FormBody.imgurl.length < 0)
+				if(FormBody.title.length <= 0 || 
+					FormBody.body.length <= 0 || 
+					FormBody.imgurl.length <= 0)
 				{
 					return res.send({success:false, code: 'Request params is null'})
 				}
@@ -87,6 +89,7 @@
 						title: FormBody.title,
 						body: FormBody.body,
 						imageurl: FormBody.imgurl
+
 					}
 
 					Database.query('INSERT INTO system_news SET ?', PostBody, function(err, rows){
