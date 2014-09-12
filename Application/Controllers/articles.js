@@ -75,9 +75,9 @@
 			{
 				res.set('Content-Type', 'application/json')
 
-				if(FormBody.title.length <= 0 || 
-					FormBody.body.length <= 0 || 
-					FormBody.imgurl.length <= 0)
+				if(BodyForm.title.length <= 0 || 
+					BodyForm.body.length <= 0 || 
+					BodyForm.imgurl.length <= 0)
 				{
 					return res.send({success:false, code: 'Request params is null'})
 				}
@@ -86,9 +86,9 @@
 				{
 					PostBody = {
 
-						title: FormBody.title,
-						body: FormBody.body,
-						imageurl: FormBody.imgurl
+						title: BodyForm.title,
+						body: BodyForm.body,
+						imageurl: BodyForm.imgurl
 
 					}
 
