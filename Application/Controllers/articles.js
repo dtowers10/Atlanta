@@ -73,11 +73,10 @@
 
 			if(req.session.user.rank > 5)
 			{
+				console.log('test test'+ BodyForm)
 				res.set('Content-Type', 'application/json')
 
-				if(BodyForm.title.length <= 0 || 
-					BodyForm.body.length <= 0 || 
-					BodyForm.imgurl.length <= 0)
+				if(typeof BodyForm.title === undefined|| typeof BodyForm.body === undefined || typeof BodyForm.imgurl === undefined)
 				{
 					return res.send({success:false, code: 'Request params is null'})
 				}
