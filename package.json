@@ -6,6 +6,9 @@
   "main": "server.js",
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "express": "^4.8.8",
     "redis": "^0.12.1",
