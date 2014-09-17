@@ -81,7 +81,7 @@
 
 			console.log(typeof(BodyForm.comment_body))
 
-			if( typeof(BodyForm.comment_body) != "undefined" && BodyForm.comment_body.length > 255){
+			if( typeof(BodyForm.comment_body) == "undefined" && BodyForm.comment_body.length > 255){
 				return res.send(JSON.stringify({success:false, error: " Debes enviar un mensaje con un limite de 255 caracteres "}))
 			}
 
