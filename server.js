@@ -31,7 +31,7 @@
 		name: Properties.Cookie.ssid,
 		secret: Properties.Cookie.secret,
 		resave: true,
-		store: new RedisClient(),
+		store: new Redis({client: RedisClient}),
     	saveUninitialized: true
 	}))
 
