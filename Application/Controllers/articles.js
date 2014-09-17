@@ -2,9 +2,15 @@
 	module.exports = ArticleController = function(Database)
 	{
 		Properties = require('../../properties')
+		EncodeTool = require('../Common/encode')
+		Recaptcha = require('recaptcha').Recaptcha
 
-		this.index = function(req, res){
-			return res.render('news.html', {name: Properties.Atlanta.name, user: req.session.user})
+		this.index = function(req, res)
+		{
+			Database.query('SELECT * FROM cms_news ORDER BY id DESC LIMIT 1', function(err, rows){
+
+				return res.render('news.html', { name: Properties.Atlanta.name, user: req.session.user, csrf: req.csrfToken(), lastArticle: rows[0] })
+			})
 		}
 
 		this.parseArticles = function(req, res)
@@ -15,7 +21,7 @@
 				limit = parseInt(req.param('limit'))
 			}
 			
-			Database.query('SELECT * FROM system_news ORDER BY id DESC LIMIT ' + (req.param('limit') ? limit : 5), function(err, rows){
+			Database.query('SELECT * FROM cms_news ORDER BY id DESC LIMIT ' + (req.param('limit') ? limit : 5), function(err, rows){
 
 				Articles = []
 
@@ -31,7 +37,7 @@
 		{
 			if(req.param('id') && !isNaN(req.param('id')))
 			{
-				Database.query('SELECT * FROM system_news WHERE id = ' + parseInt(req.param('id')) , function(err, rows){
+				Database.query('SELECT * FROM cms_news WHERE id = ' + Database.escape(parseInt(req.param('id'))) , function(err, rows){
 
 					if(rows.length <= 0)
 					{
@@ -41,11 +47,7 @@
 
 					else
 					{
-						Articles = []
-
-						for(List = 0; List < rows.length; List++){
-							Articles.push(rows[List])
-						}
+						Articles = rows[0]
 
 						if(req.param('json'))
 						{
@@ -53,9 +55,8 @@
 							res.send(JSON.stringify(Articles))
 						}
 
-						else{
-							return res.send('lolo' + Articles)
-							//return res.render('news.html', { preferedArticle: Articles })
+						else if(req.session.user){
+							return res.render('news.html', { name: Properties.Atlanta.name, user: req.session.user, preferedArticle: Articles, csrf: req.csrfToken() })
 						}
 					}
 				})
@@ -63,47 +64,100 @@
 
 			else
 			{
-				res.send('Enter a number valid')
+				return res.redirect('/articles')
 			}
 		}
 
+
 		this.addArticle = function(req, res)
 		{
+
+		}
+
+		this.addCommentToArticle = function(req, res)
+		{
 			BodyForm = req.body
+			res.set('Content-Type', 'application/json')
 
-			if(req.session.user.rank > 5)
+			if(req.param('article') && !isNaN(req.param('article')) && BodyForm.comment_body.length >= 2)
 			{
-				console.log('test test'+ BodyForm)
-				res.set('Content-Type', 'application/json')
+				reCaptcha = new Recaptcha(Properties.Google.recaptcha.public, Properties.Google.recaptcha.private, { remoteip: req.connection.remoteAddress, challenge: BodyForm.recaptcha_challenge_field, response: BodyForm.recaptcha_response_field })
+				reCaptcha.verify(function(success, error){
 
-				if(typeof BodyForm.title === undefined|| typeof BodyForm.body === undefined || typeof BodyForm.imgurl === undefined)
-				{
-					return res.send({success:false, code: 'Request params is null'})
-				}
+					if(success)
+					{
+						Database.query('SELECT * FROM cms_news WHERE id = ' + Database.escape(req.param('article')), function(err, rows){
+					
+							if(rows.length <= 0){
+								return res.send(JSON.stringify({success:false, error: "The article is not found "}))
+							}
 
-				else
-				{
-					PostBody = {
+							else
+							{
+								CommentData = {
 
-						title: BodyForm.title,
-						body: BodyForm.body,
-						imageurl: BodyForm.imgurl
+									articleid: req.param('article'),
+									username: req.session.user.username,
+									comment: EncodeTool.htmlEntities(BodyForm.comment_body),
+									look: req.session.user.look
+								}
 
+								Database.query('INSERT INTO news_comment SET ?', CommentData, function(err, rows){
+
+									if(!err){
+										return res.send(JSON.stringify({success:true, message: "Tu mensaje ha sido enviado"}))
+									}
+
+									else
+									{
+										console.log(err)
+										return res.send(JSON.stringify({success:false, error: "An error ocurred to insert the comment"}))
+									}
+								})
+							}
+						})
 					}
 
-					Database.query('INSERT INTO system_news SET ?', PostBody, function(err, rows){
-
-						if(!err){
-							return res.send({success:true, code: 'Article ' + title + ' added success!'})
-						}
-					})
-				}
+					else
+					{
+						return res.send(JSON.stringify({success:false, error: "An error ocurred, please enter a valid code of recaptcha "+ error}))
+					}
+				})
 			}
 
 			else
 			{
-				res.status(403)
-				return res.send('No tienes los permisos suficientes para acceder aqui')
+				return res.send(JSON.stringify({success: false, error: "Enter a valid number"}))
+			}
+		}
+
+		this.parseComents = function(req, res)
+		{
+			res.set('Content-Type', 'application/json')
+
+			if(req.param('article') && !isNaN(req.param('article')))
+			{
+				articleID = Database.escape(parseInt(req.param('article')))
+
+				Database.query('SELECT * FROM news_comment WHERE articleid = '+ articleID +' ORDER BY id DESC ', function(err, rows){
+
+					if(rows.length <= 0){
+						return res.send(JSON.stringify({success: false, error: "The comments don't found"}))
+					}
+
+					Comments = []
+
+					for(List = 0; List < rows.length; List++){
+						Comments.push(rows[List])
+					}
+
+					return res.send(JSON.stringify(Comments))
+				})
+			}
+
+			else
+			{
+				return res.send(JSON.stringify({success:false, error: "Please enter the articleID"}))
 			}
 		}
 

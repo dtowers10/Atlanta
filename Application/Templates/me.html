@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<title>{{name}}, {{user['username']}} home!</title>
 
-	<link rel="stylesheet" href="static/css/material.reset.css">
-	<link rel="stylesheet" href="static/css/material.main.css">
-	<link rel="stylesheet" href="static/css/material.animate.css">
+	<link rel="stylesheet" href="/static/css/material.reset.css">
+	<link rel="stylesheet" href="/static/css/material.main.css">
+	<link rel="stylesheet" href="/static/css/material.animate.css">
 	
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="static/css/me.css">
+	<link rel="stylesheet" href="/static/css/me.css">
 
 </head>
 <body>
@@ -24,11 +24,11 @@
 			<div class="logo"></div>
 			<div id="subnavi">
 				<a href="#">Home</a>
-				<a href="news.html">News</a>
-				<a href="staff.html">Administrators</a>
+				<a href="/articles">News</a>
+				<a href="/staffs">Administrators</a>
 				
-				{% if user['rank'] > 7 %}
-					<a href="hosekeeping/{{user['username']}}/admin">Housekeeping</a>
+				{% if user['rank'] >= 5  %}
+					<a href="/admin/housekeeping">Housekeeping</a>
 				{% endif %}
 
 				<a style="color:#F22613" href="account/logout">Logout</a>
@@ -137,7 +137,7 @@
 							'<i class="article-image" style="background: url(' + val.imageurl + ') center center;"></i>' +
 
 							'<a id="titlea" href="/articles/'+ val.id +'">'+ val.title +'</a>' +
-							'<p>'+ val.body +'</p>')
+							'<p>'+ val.summary +'</p>')
 					})
 				}
 			})

@@ -1,4 +1,12 @@
 {
+	"Database-dev":{
+		"host": "localhost",
+		"user": "root",
+		"password": "boot",
+		"database": "atlanta",
+		"port": 3306
+	},
+
 	"Database":{
 		"host": "db4free.net",
 		"user": "beam",

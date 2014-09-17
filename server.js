@@ -13,7 +13,7 @@
 	Sessions = require('express-session')
 	Redis = require('connect-redis')(Sessions)
 	DataParser = require('body-parser')
-	CrossDomain = require('csurf')
+	SessionProtection = require('csurf')
 
 	Server.engine('html', RenderEngine.renderFile)
 	Server.set('view engine', 'html')
@@ -24,18 +24,18 @@
 		extended: true
 	}))
 
-	RedisClient = require('./Application/Common/Redis').connect("redis://db01:theboot@pub-redis-12407.us-east-1-3.4.ec2.garantiadata.com:12407")
+	RedisClient = require('./Application/Common/Redis').connect("redis://redistogo:0f64c058c46494f08687fe1afce82a80@grouper.redistogo.com:10344")
 
 	Server.use(Cookies())
 	Server.use(Sessions({
 		name: Properties.Cookie.ssid,
 		secret: Properties.Cookie.secret,
 		resave: true,
-		store: new Redis({client: RedisClient}),
+		store: new RedisClient(),
     	saveUninitialized: true
 	}))
 
-	//Server.use(CrossDomain())
+	Server.use(SessionProtection())
 
 	Server.use('/static/', Express.static(Path.join(__dirname, 'public')))
 	Server.set('views', Path.join(__dirname, 'Application/Templates'))

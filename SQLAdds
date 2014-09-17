@@ -1,0 +1,64 @@
+--
+-- Estructura de tabla para la tabla `cms_news`
+--
+
+CREATE TABLE `cms_news` (
+`id` int(5) NOT NULL,
+  `title` text NOT NULL,
+  `summary` text NOT NULL,
+  `body` text NOT NULL,
+  `imageurl` varchar(255) NOT NULL,
+  `frontimage` varchar(255) NOT NULL,
+  `author` text NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cms_news`
+--
+ALTER TABLE `cms_news`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cms_news`
+--
+ALTER TABLE `cms_news`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+
+--
+-- Estructura de tabla para la tabla `news_comment`
+--
+
+CREATE TABLE `news_comment` (
+`id` int(5) NOT NULL,
+  `articleId` int(5) NOT NULL,
+  `username` varchar(80) NOT NULL,
+  `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `news_comment`
+--
+ALTER TABLE `news_comment`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `news_comment`
+--
+ALTER TABLE `news_comment`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;

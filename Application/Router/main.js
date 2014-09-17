@@ -6,4 +6,5 @@
 		
 		Router.get('/', Middleware.offAuth, MainController.index)
 		Router.get('/me', Middleware.authRequired, MainController.me)
+		Router.get('/staffs', Middleware.authRequired, MainController.team)
 	} 

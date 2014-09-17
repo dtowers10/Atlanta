@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>{{name}}, {{user['username']}} home!</title>
+
+	<link rel="stylesheet" href="/static/css/material.reset.css">
+	<link rel="stylesheet" href="/static/css/material.main.css">
+	<link rel="stylesheet" href="/static/css/material.animate.css">
+	
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/static/css/me.css">
+	<link rel="stylesheet" href="/static/css/staff.css">
+
+</head>
+<body>
+
+	<div id="topbar" class="animated fadeInDown" style="background:rgba(0, 0, 0, 0.21)">
+		<div id="container">
+			Bienvenido de nuevo, {{user['username']}}  <span> Hay 1210 Usuarios en linea  </span>
+		</div>
+	</div>
+
+	<header>
+		<div id="container">
+			<div class="logo"></div>
+			<div id="subnavi">
+				<a href="/">Home</a>
+				<a href="/articles">News</a>
+				<a href="#">Administrators</a>
+
+				{% if user['rank'] >= 5 %}
+					<a href="hosekeeping/{{user['username']}}/admin">Housekeeping</a>
+				{% endif %}
+
+				<a style="color:#F22613" href="account/logout">Logout</a>
+			</div>
+		</div>
+	</header>
+	
+	<div id="container">
+		<div class="card imageWrapper">
+
+			<div class="overlay"></div>
+			<div class="avatarImage"></div>
+
+			<div class="avatarTitle">
+				<h1>{{user['username']|capitalize}}</h1>
+				<span>{{user['motto']|capitalize}}</span>
+			</div>
+
+			<div class="avatarDescription">
+				<div id="stats">
+					<li class="credits">
+						<div class="sprite-icons-money coins">
+							<span>{{user['credits']}} Creditos</span>
+						</div>
+					</li>
+
+					<li class="duckets">
+						<div class="sprite-icons-money duckets">
+							<span>{{user['peanuts']}} Duckets</span>
+						</div>
+					</li>
+
+					<li class="diamonds">
+						<div class="sprite-icons-money diamonds">
+							<span>{{user['stars']}} Diamantes</span>
+						</div>
+					</li>
+
+					<li class="refers">
+						<div class="sprite-icons-money refers">
+							<span>100 Referidos</span>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+
+		<div id="left-column" style="width:43.54%">
+
+			<div class="card animated fadeInDown" style="position:relative">
+				<div class="title">
+					<span class="titleBlue"><i class="fa fa-graduation-cap"></i>Quienes son</span>
+				</div>
+
+				<div class="content">
+					Los staffs son personas que se encargan de ayudarte con tus problemas y de evitar que ocurran 
+					<img src="http://haddoz.nl/static/beta/img/staff.png" align="right" alt="">errores dentro del juego, tambien pueden tomar acciones diciplinarias contra usuarios que estan haciendo daños a diferentes personas etc.
+					<br>
+
+					Pueden estar por todo el hotel y muchas veces abrir salas para poderte ayudar si te encuentras con algún tipo de problema
+				</div>
+
+			</div>
+
+			<div class="card post-message animated fadeInDown" style="position:relative">
+
+				<div class="title">
+					<span><i class="fa fa-graduation-cap"></i>Reportar a un miembro</span>
+				</div>
+
+				<div class="content">
+					Puedes reportar si alguien del equipo administrativo no esta cumpliendo su trabajo o esta sobrepasado su poder con los diferentes usuarios que hay dentro del hotel. Haremos una investigación en caso de que tu reporte sea una mentira, podras ser baneado.
+					
+					<form action="submit/report">
+						<input type="text" class="input block" placeholder="Miembro administrativo">
+						<textarea placeholder="Cuentanos un poco más sobre que actos indevidos esta cometiendo nuestro miembro del equipo administrativo... " class="block post-message" style="height:138px"></textarea>
+						<button class="button red block" style="margin-top:20px;">Investigar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="right-column" style="width:55%">
+			{% if error %}
+				Lo sentimos, no hay ningun miembro en el equipo administrativo.
+			{% else %}
+				
+				{% for owner in owners %}
+					<div class="card bitchMod animated fadeInDown" style="background: url({{owner['front']}});background-size: 100%; background-position: center; margin-top:0">
+					
+						<div class="overlayS"></div>
+						<div class="avatar">
+							<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure={{owner['look']}}&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+							<div class="avatarName">
+								{{owner['username']}}
+								<span style="font-size: 15px; position: absolute;right: 50px; top:3px">Fundadores & Dueños</span>
+							</div><br>
+							<div class="avatarComment">{{owner['motto']}}</div>
+						</div>
+					</div>
+				{% endfor %}
+
+				{% for tec in tecs %}
+					<div class="card bitchMod animated fadeInDown" style="background: url({{tec['front']}});background-size: 100%; background-position: center; margin-top:0">
+					
+						<div class="overlayS"></div>
+						<div class="avatar">
+							<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure={{tec['look']}}&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+							<div class="avatarName">
+								{{tec['username']}}
+								<span style="font-size: 15px; position: absolute;right: 50px; top:3px">Técnico</span>
+							</div><br>
+							<div class="avatarComment">{{tec['motto']}}</div>
+						</div>
+					</div>
+				{% endfor %}
+
+				{% for admin in admins %}
+					<div class="card bitchMod animated fadeInDown" style="background: url({{admin['front']}});background-size: 100%; background-position: center; margin-top:0">
+					
+						<div class="overlayS"></div>
+						<div class="avatar">
+							<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure={{admin['look']}}&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+							<div class="avatarName">
+								{{admin['username']}}
+								<span style="font-size: 15px; position: absolute;right: 50px; top:3px">Administrador</span>
+							</div><br>
+							<div class="avatarComment">{{admin['motto']}}</div>
+						</div>
+					</div>
+				{% endfor %}
+
+				{% for concurso in concurs %}
+					<div class="card bitchMod animated fadeInDown" style="background: url({{concurso['front']}});background-size: 100%; background-position: center; margin-top:0">
+					
+						<div class="overlayS"></div>
+						<div class="avatar">
+							<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure={{concurso['look']}}&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+							<div class="avatarName">
+								{{concurso['username']}}
+								<span style="font-size: 15px; position: absolute;right: 50px; top:3px">Concurso</span>
+							</div><br>
+							<div class="avatarComment">{{concurso['motto']}}</div>
+						</div>
+					</div>
+				{% endfor %}
+
+				{% for mod in mods %}
+					<div class="card bitchMod animated fadeInDown" style="background: url({mod['front']});background-size: 100%; background-position: center; margin-top:0">
+					
+						<div class="overlayS"></div>
+						<div class="avatar">
+							<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure={{mod['look']}}&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
+							<div class="avatarName">
+								{{mod['username']}}
+								<span style="font-size: 15px; position: absolute;right: 50px; top:3px">Moderador</span>
+							</div><br>
+							<div class="avatarComment">{{mod['motto']}}</div>
+						</div>
+					</div>
+				{% endfor %}
+
+			{% endif %}
+		</div>
+	</div>
+</body>

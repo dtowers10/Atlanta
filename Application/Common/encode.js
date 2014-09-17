@@ -13,5 +13,9 @@
 
 		hashPassword: function(username, password){
 			return EncodeTool.sha1(EncodeTool.md5(EncodeTool.sha1(EncodeTool.md5(password + username.toLowerCase()))))
+		},
+
+		htmlEntities: function(str) {
+    		return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 		}
 	}

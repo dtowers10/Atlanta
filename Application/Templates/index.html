@@ -25,10 +25,10 @@
 				<form action="/account/signup" method="POST">
 
 					{% if error %}
-						<div class="error">{{error}}</div>
+						<div id="register_login" class="error">{{error}}</div>
 					{% endif %}
 
-					<!--<input id="csrf_r" type="hidden" name="_csrf" value="{{csrf}}">-->
+					<input type="hidden" name="_csrf" value="{{csrf}}">
 
 					<input required type="text" name="username" placeholder="Nombre de usuario" class="input block animated shake">
 
@@ -88,7 +88,7 @@
 
 					{% endif %}
 
-					<input id="csrf_i" type="hidden" name="_csrf" value="{{csrf}}">
+					<input type="hidden" name="_csrf" value="{{csrf}}">
 					<input type="text" name="username" class="input" placeholder="Nombre de usuario">
 					<input type="password" name="password" class="input" placeholder="Contraseña">
 
@@ -110,7 +110,7 @@
 			<strong>El hotel más grande de latinoamerica</strong><br>
 
 			<div class="caract">
-				<li>Es un juego social donde nadien sabra quien eres realmente</li>
+				<li>Es un juego social donde nadie sabra quien eres realmente</li>
 				<li>Llevamos desde el 2010 ofreciendo diversión a todos nuestros usuarios</li>
 				<li>Contamos con más de 875.000 usuarios registrados</li>
 				<li>Prodras hacer nuevos amigos, tomar un cafe, ir a una discoteca hasta ir a la playa</li>
@@ -177,6 +177,7 @@
 
 		$('#register_but').click(function()
 		{
+			$('#register_login').remove()
 			$('body').css('background', '#22313F')
 			$('#initialMain').addClass('animated fadeOut')
 			$('#initialMain').css('display', 'none')
@@ -185,8 +186,8 @@
 			$('.register-abs').addClass('animated fadeInDown')
 		})
 
-		if(window.location.hash) {
-
+		if(window.location.hash)
+		{
 			var hash = window.location.hash.substring(1); 
 
 			if(hash == "register")

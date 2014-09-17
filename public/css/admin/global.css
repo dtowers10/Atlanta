@@ -1,0 +1,133 @@
+body
+{
+	margin: 0;
+	background: #E4E4E4;
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing:antialiased;
+}
+
+.nav
+{
+	width: 100%;
+	height: 80px;
+	background: #222222;
+}
+
+.content
+{
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
+	top: 15px;
+}
+
+.nav .logo
+{
+	font-size: 34px;
+	color:white;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+.nav-bar
+{
+	background: #3498db;
+	width: 100%;
+	height: 140px;
+	border-bottom:7px solid white;
+}
+
+.nav-bar i
+{
+	font-size: 40px;
+	margin: 0;
+	display: block;
+}
+
+.nav-bar a
+{
+	text-decoration: none;
+	color:white;
+}
+
+.nav-bar a:hover
+{
+	color: #222222;
+}
+
+.nav-bar ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.nav-bar ul li
+{
+	display: inline-block;
+	margin-left: 50px;
+	list-style: none;
+	text-align: center;
+}
+
+.nav-bar ul li:first-child
+{
+	margin-left: 0;
+}
+
+.wrapper
+{
+	margin: -50px auto;
+	max-width: 1000px;
+	box-shadow: 0 1px 2px #aaa;
+	min-height: 200px;
+	background: white;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.card
+{
+	width: 50%;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 3px;
+	background: #F5F5F5;
+	box-shadow: 0 1px 2px #aaa;
+	padding: 10px;
+}
+
+.card.small
+{
+	width: 30%;
+	margin-right: 15px;
+}
+
+.card.small:last-child
+{
+	margin-right: 0;
+}
+
+.card.small .title
+{
+	color: #999;
+	text-transform: uppercase;
+	margin-left: 10px;
+	font-size: 13px;
+}
+
+.card.small p
+{
+	margin: 10px;
+	margin-bottom: 0;
+}
+
+.card.small span
+{
+	font-family: 'Helvetica';
+	font-weight: bold;
+	font-size: 40px;
+	padding: 0;
+	margin-left: 10px;
+}

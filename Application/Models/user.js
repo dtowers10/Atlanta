@@ -206,8 +206,6 @@
 		this.banExist = function(username, ip, callback)
 		{
 			Database.query('SELECT * FROM bans WHERE bantype="user" AND value = ' + username + ' OR bantype="ip" AND value = "' + ip + '" ', function(err, rows){
-				
-				console.log(err)
 
 				if(rows > 0)
 					return callback(true, null)

@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<title>{{name}}, {{user['username']}} home!</title>
 
-	<link rel="stylesheet" href="../static/css/material.reset.css">
-	<link rel="stylesheet" href="../static/css/material.main.css">
-	<link rel="stylesheet" href="../static/css/material.animate.css">
+	<link rel="stylesheet" href="/static/css/material.reset.css">
+	<link rel="stylesheet" href="/static/css/material.main.css">
+	<link rel="stylesheet" href="/static/css/material.animate.css">
 	
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="../static/css/me.css">
-	<link rel="stylesheet" href="../static/css/news.css">
+	<link rel="stylesheet" href="/static/css/me.css">
+	<link rel="stylesheet" href="/static/css/news.css">
 
 </head>
 <body>
@@ -27,14 +27,14 @@
 			<div class="logo"></div>
 			<div id="subnavi">
 				<a href="/">Home</a>
-				<a href="news.html">News</a>
-				<a href="staff.html">Administrators</a>
+				<a href="#">News</a>
+				<a href="/staffs">Administrators</a>
 
-				{% if user['rank'] > 7 %}
+				{% if user['rank'] >= 5 %}
 					<a href="hosekeeping/{{user['username']}}/admin">Housekeeping</a>
 				{% endif %}
 
-				<a style="color:#F22613" href="logout">Logout</a>
+				<a style="color:#F22613" href="account/logout">Logout</a>
 			</div>
 		</div>
 	</header>
@@ -46,8 +46,8 @@
 			<div class="avatarImage"></div>
 
 			<div class="avatarTitle">
-				<h1>{{user['username']}}</h1>
-				<span>{{user['motto']}}</span>
+				<h1>{{user['username']|capitalize}}</h1>
+				<span>{{user['motto']|capitalize}}</span>
 			</div>
 
 			<div class="avatarDescription">
@@ -201,52 +201,140 @@
 
 		<div id="right-column" style="width:58%">
 			<div class="card" style="text-align:justify">
-				<div class="card" style="margin-top: -3px; margin-bottom: 20px; padding:35px; background: url(http://img.habtium.com/album/7/0b5b79150dc7.png)">
-					<h1 style="text-align:center; background:black; color:white">EL NUEVO DISEÑO DE EL NAVEGADOR</h1>
-				</div>
+				
+				{% if preferedArticle %}
 
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. <br><br>
+                    <div class="card" style="margin-top: -3px; margin-bottom: 20px; padding:35px; background: url({{preferedArticle['frontimage']}})">
+						<h1 style="text-align:center; background:black; color:white">{{preferedArticle['title']|upper}}</h1>
+					</div>
 
-				Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.<br><br>
+					{{ preferedArticle['body'] }}
+		
+					<span style="float:right">Escrito por: {{preferedArticle['author']|capitalize}}</span>
 
-				Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.<br><br>
+                {% else %}
 
-				Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.<br><br>
+                	<div class="card" style="margin-top: -3px; margin-bottom: 20px; padding:35px; background: url({{ lastArticle['frontimage'] }})">
+						<h1 style="text-align:center; background:black; color:white">
+							{{ lastArticle['title']|upper }}
+						</h1>
+					</div>
 
-				Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue. Integer eu magna sit amet metus fermentum posuere. Morbi sit amet nulla sed dolor elementum imperdiet. Quisque fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque adipiscing eros ut libero. Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida.
-				<span style="float:right">Escrito por: Diosa</span>
+					{{ lastArticle['body'] }}
+		
+					<span style="float:right">
+						Escrito por: {{lastArticle['author']|capitalize}}
+					</span>
+
+                {% endif%}
 			</div>
 
 			<div class="card">
 				<h1 class="softred">Escribe un comentario</h1>
-				<form action="submit/comment"></form>
-					<input type="hidden" name="new_id" value="23">
-					<textarea placeholder="Que nos quieres compartir..." name="new_comment" class="block post-message"></textarea>
+				<span id="bii"></span>
 
-					<button type="submit"class="button red block" style="margin-top:20px">Enviar a haddoz</button>
-				</form>
+				<input id="csrf_val" type="hidden" name="_csrf" value="{{csrf}}">
+
+				{% if preferedArticle %}
+					<input type="hidden" id="article_id" name="new_id" value="{{preferedArticle['id']}}">
+				{% else %}
+					<input type="hidden" id="article_id" name="new_id" value="{{lastArticle['id']}}">
+				{% endif %}
+
+				<textarea id="new_comment" placeholder="Que nos quieres compartir..." name="new_comment" style="max-width: 100%; max-height:200px;" class="block post-message"></textarea>
+
+				</br>
+
+				<div id="captcha-container">
+					<div id="captcha-image-container">
+						<div id="recaptcha_image"></div>
+						<div id="captcha-overlay"></div>
+					</div>
+
+					<div class="input-group" style="margin-top:5px;">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-warning-sign"></i>
+						</span>
+					
+						<input class="input" type="text" name="recaptcha_response_field" id="recaptcha_response_field" placeholder="Escribe las dos palabras" style="display:inline-block; margin:0!important;">
+					</div>
+				</div>
+
+				<button id="send_comment" type="submit" class="button red block" style="margin-top:20px">Enviar a haddoz</button>
+				
 			</div>
 
-			<div class="card">
-				<div class="avatar">
-					<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
-					<div class="avatarName">James rodriguez</div><br>
-					<div class="avatarComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia commodi laudantium id, sequi hic officiis explicabo dolore! </div>
-				</div>
-
-				<div class="avatar">
-					<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
-					<div class="avatarName">James rodriguez</div><br>
-					<div class="avatarComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia commodi laudantium id, sequi hic officiis explicabo dolore! </div>
-				</div>
-
-				<div class="avatar">
-					<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure=fa-1204-62.hr-155-52.ch-201410-1314.ca-3217-64-64.lg-275-110.sh-295-62.ea-3108-64-62.hd-3092-22.cc-3007-63-63&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>
-					<div class="avatarName">James rodriguez</div><br>
-					<div class="avatarComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia commodi laudantium id, sequi hic officiis explicabo dolore! </div>
-				</div>
-			</div>
+			<div id="comments" class="card"></div>
 		</div>
 	</div>
 
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+	<script type="text/javascript">
+
+		Recaptcha.create("6LccMPoSAAAAAJ1GWspsUhPwAe5oZc_Ws1vsTznL", 'recaptcha_image',{
+            theme: "custom",
+            callback: Recaptcha.focus_response_field });
+
+		$('#reloadcaptcha').click(function(event){
+			event.preventDefault();
+			Recaptcha.reload();
+		})
+
+		$('#send_comment').click(function(){
+
+			$.ajax({
+				url: "/article/comments/add/" + $('#article_id').val(),
+				type: "POST",
+				data: {
+					_csrf: $('#csrf_val').val(), 
+					recaptcha_challenge_field: $('#recaptcha_challenge_field').val(),
+					recaptcha_response_field: $('#recaptcha_response_field').val(),
+					comment_body: $('#new_comment').val()},
+
+				success: function(body){
+					
+					if(body.success){
+						$('#bii').html(body.message)
+						document.location = '/articles/' + $('#article_id').val()
+					}
+
+					else{
+						$('#bii').append(body.error)
+					}
+
+				}
+			})
+		})
+
+		$.ajax({
+
+			url: "/articles/comments/" + $('#article_id').val(),
+			type: "GET",
+			beforeSend: function() {
+				$('#comments').html('<div id="loading">Loading comments..</div>')
+			},
+			success: function(body){
+				$('#loading').hide()
+				
+				if(!body.error){
+
+					$.each(body, function(k, val){
+						$('#comments').append('<div class="avatar">' +
+								'<div class="avatarImage" style="background: url(http://www.habbohotel.es/habbo-imaging/avatarimage?figure='+ val.look +'&direction=3&head_direction=3&gesture=sml&action=wav&size=l); background-position-x: -35px; background-position-y: -39px;"></div>' +
+
+							'<div class="avatarName">'+ val.username +'</div><br>' +
+							'<div class="avatarComment">'+ val.comment +'</div>' +
+							'</div>')
+					})
+				}
+
+				else
+				{
+					$('#loading').html(body.error)
+					$('#loading').fadeIn()
+				}
+			}
+		})
+	</script>
 </body>
