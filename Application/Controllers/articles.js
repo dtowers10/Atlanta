@@ -79,7 +79,7 @@
 			BodyForm = req.body
 			res.set('Content-Type', 'application/json')
 
-			if(!BodyForm.comment_body && BodyForm.comment_body.length > 255){
+			if(BodyForm.comment_body.length > 255){
 				return res.send(JSON.stringify({success:false, error: " Debes enviar un mensaje con un limite de 255 caracteres "}))
 			}
 
