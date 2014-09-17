@@ -79,7 +79,11 @@
 			BodyForm = req.body
 			res.set('Content-Type', 'application/json')
 
-			if(req.param('article') && !isNaN(req.param('article')) && BodyForm.comment_body.length >= 2)
+			if(!BodyForm.comment_body && BodyForm.comment_body.length > 255){
+				return res.send(JSON.stringify({success:false, error: " Debes enviar un mensaje con un limite de 255 caracteres "}))
+			}
+
+			else if(req.param('article') && !isNaN(req.param('article')) && BodyForm.comment_body.length >= 2)
 			{
 				reCaptcha = new Recaptcha(Properties.Google.recaptcha.public, Properties.Google.recaptcha.private, { remoteip: req.connection.remoteAddress, challenge: BodyForm.recaptcha_challenge_field, response: BodyForm.recaptcha_response_field })
 				reCaptcha.verify(function(success, error){
