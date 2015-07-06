@@ -23,8 +23,7 @@
 
 		this.me = function(req, res)
 		{
-			res.send(req.session.user)
-			//return res.render('me.html', { name: Properties.Atlanta.name, user: req.session.user, userCount: 'Muchos usuarios conectados'})
+			return res.render('me.html', { name: Properties.Atlanta.name, user: req.session.user, userCount: 'Muchos usuarios conectados'})
 		}
 
 		this.team = function(req, res)
