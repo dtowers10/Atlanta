@@ -4,6 +4,9 @@
 
 	module.exports.createClient = module.exports.connect = function(redis_url) {
   		
+      // Redis Store connection
+      // Connect with the store Production or Dev.
+
   		var password, database;
   		
   		parsed_url  = url.parse(redis_url || process.env.REDIS_URL || 'redis://localhost:6379');

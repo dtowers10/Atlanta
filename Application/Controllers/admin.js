@@ -1,6 +1,9 @@
 
 	module.exports = AdminController = function(Database)
 	{
+
+		// No yet finished
+		
 		this.adminLogin = function(req, res)
 		{
 			if(req.session.user)

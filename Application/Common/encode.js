@@ -1,6 +1,8 @@
 	
 	Crypto = require('crypto')
 
+	// Hash encode of Atlanta.
+
 	module.exports = EncodeTool = {
 
 		md5: function(string){

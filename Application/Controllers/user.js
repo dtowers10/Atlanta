@@ -1,12 +1,16 @@
 
 	module.exports = UserController = function(Database){
 
+		// User Controller handle all request of username
+		// Example: /signin, /signup
+
 		UserModel = require('../Models/user')(Database)
 
 		this.auth = function(req, res)
 		{
 			BodyForm = req.body
 
+			// Calling UserModel instance for connect to Database
 			UserModel.Authentication(BodyForm.username, BodyForm.password, req.ip, function(err, info){
 				
 				if(err)

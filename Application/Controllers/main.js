@@ -1,10 +1,17 @@
 	
-	Properties = require('../../properties')
+	// Configuration properties
+
+	Properties = require('../../properties') 
+
+	// The main controller for the Website,
+	// Example: /, /me, /staff. Etc. 
 
 	MainController = function(Database)
 	{
 		this.index = function(req, res)
 		{
+			// LogIN validation
+			
 			if(req.session.login_error || req.session.register_error)
 			{
 				ErrorRender = req.session.login_error || req.session.register_error
